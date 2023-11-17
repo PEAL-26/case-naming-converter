@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/peAL-26/case-naming-converter.git"
+    "url": "git+https://github.com/PEAL-26/case-naming-conventer.git"
   },
   "keywords": [
     "case",
@@ -28,9 +28,9 @@
   "author": "PEAL-26",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/peAL-26/case-naming-converter/issues"
+    "url": "https://github.com/PEAL-26/case-naming-conventer/issues"
   },
-  "homepage": "https://github.com/peAL-26/case-naming-converter#readme",
+  "homepage": "https://github.com/PEAL-26/case-naming-conventer#readme",
   "devDependencies": {
     "@types/jest": "^29.5.8",
     "@types/mocha": "^10.0.4",
