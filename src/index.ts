@@ -19,7 +19,7 @@ export const verifyInputType = (input: any) => {
 export const snakeToCamel = <T>(input: any) => {
   const type = verifyInputType(input);
 
-  if (type === 'string') return camelCase(input);
+  if (type === 'string') return camelCase(input) as T;
 
   const convertedObject = {};
   for (const [key, value] of Object.entries(input)) {
