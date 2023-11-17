@@ -7,7 +7,7 @@ Solução simples e eficiente para a conversão de nomes ou propriedades de obje
 Certifique-se de ter o Node.js instalado em sua máquina. Clone o repositório e execute o seguinte comando no terminal para instalar as dependências:
 
 ```bash
-npm install
+npm i case-naming-converter
 ```
 
 ## Uso
