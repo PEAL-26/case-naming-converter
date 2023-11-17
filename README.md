@@ -1,6 +1,6 @@
 # Case Naming Converter
 
-Este projeto Node.js visa fornecer uma solução simples e eficiente para a conversão de nomes ou propriedades de objetos entre camelCase e snake_case. Isso é útil ao lidar com diferentes convenções de nomenclatura em projetos ou ao integrar sistemas que utilizam padrões de nomenclatura diferentes.
+Solução simples e eficiente para a conversão de nomes ou propriedades de objetos de camelCase para snake_case e vice-versa. Isso é útil ao lidar com diferentes convenções de nomenclatura em projetos ou ao integrar sistemas que utilizam padrões de nomenclatura diferentes.
 
 ## Instalação
 
@@ -12,21 +12,30 @@ npm install
 
 ## Uso
 
-O módulo `case-naming-converter` fornece duas funções principais: `camelToSnake` e `snakeToCamel`. Ambas as funções aceitam uma string como entrada e retornam a string convertida.
+O módulo `case-naming-converter` fornece duas funções principais: `camelToSnake` e `snakeToCamel`. Ambas as funções aceitam uma string ou object como entrada e retornam a string ou object convertido.
 
 ### Exemplo
 
 ```javascript
-const caseNamingConverter = require('./case-naming-converter');
+import {camelToSnake, snakeToCamel} from 'case-naming-converter';
 
 const camelCaseString = 'exemploDeCamelCase';
 const snakeCaseString = 'exemplo_de_snake_case';
 
-const convertedToSnakeCase = caseNamingConverter.camelToSnake(camelCaseString);
-const convertedToCamelCase = caseNamingConverter.snakeToCamel(snakeCaseString);
+const convertedToSnakeCaseString = camelToSnake(camelCaseString);
+const convertedToCamelCaseString = snakeToCamel(snakeCaseString);
 
-console.log('Camel to Snake Case:', convertedToSnakeCase);
-console.log('Snake to Camel Case:', convertedToCamelCase);
+console.log('Camel to Snake Case:', convertedToSnakeCaseString);
+console.log('Snake to Camel Case:', convertedToCamelCaseString);
+
+const camelCaseObject = {exemploDeCamelCase: 'valor'};
+const snakeCaseObject = {exemplo_de_snake_case: 'valor'};
+
+const convertedToSnakeCaseObject = camelToSnake(camelCaseObject);
+const convertedToCamelCaseObject = snakeToCamel(snakeCaseObject);
+
+console.log('Camel to Snake Case:', convertedToSnakeCaseObject);
+console.log('Snake to Camel Case:', convertedToCamelCaseObject);
 ```
 
 ## Contribuição
