@@ -1,33 +1,55 @@
 import { camelCase, snakeCase } from 'case-anything';
 
-const validateObject = <T>(obj: T) => {
-  // verifica se obj é um objeto
-  if (typeof obj !== 'object' || obj === null) {
-    throw new Error('Objeto inválido!');
+export const verifyInputType = (input: any) => {
+  if (input === undefined || input === null) {
+    throw new Error('Valor inválido!');
   }
+
+  if (typeof input === 'string') {
+    return 'string';
+  }
+
+  if (typeof input === 'object') {
+    return 'object';
+  }
+
+  return false;
 };
 
-export const snakeToCamel = <T>(obj: any) => {
-  validateObject(obj);
+export const snakeToCamel = <T>(input: any) => {
+  const type = verifyInputType(input);
+
+  if (type === 'string') return camelCase(input);
 
   const convertedObject = {};
+  for (const [key, value] of Object.entries(input)) {
+    const valueType = verifyInputType(value);
 
-  for (const [key, value] of Object.entries(obj)) {
-    const newKey = camelCase(key);
-    convertedObject[newKey] = value;
+    if (valueType === 'object') {
+      convertedObject[camelCase(key)] = snakeToCamel(value);
+    } else {
+      convertedObject[camelCase(key)] = value;
+    }
   }
 
   return convertedObject as T;
 };
 
-export const camelToSnake = (obj: any) => {
-  validateObject(obj);
+export const camelToSnake = (input: any) => {
+  const type = verifyInputType(input);
+
+  if (type === 'string') return snakeCase(input);
 
   const convertedObject = {};
 
-  for (const [key, value] of Object.entries(obj)) {
-    const newKey = snakeCase(key);
-    convertedObject[newKey] = value;
+  for (const [key, value] of Object.entries(input)) {
+    const valueType = verifyInputType(value);
+
+    if (valueType === 'object') {
+      convertedObject[snakeCase(key)] = camelToSnake(value);
+    } else {
+      convertedObject[snakeCase(key)] = value;
+    }
   }
 
   return convertedObject;
