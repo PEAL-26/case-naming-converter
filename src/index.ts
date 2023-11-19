@@ -2,7 +2,9 @@ import { camelCase, snakeCase } from 'case-anything';
 
 export const verifyInputType = (input: any) => {
   if (input === undefined || input === null) {
-    throw new Error('Valor inválido!');
+    throw new Error('CaseNamingConverterError: Valor inválido!', {
+      cause: input,
+    });
   }
 
   if (typeof input === 'string') {
