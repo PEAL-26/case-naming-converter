@@ -25,6 +25,7 @@ export const snakeToCamel = <T>(input: any) => {
 
   const convertedObject = {};
   for (const [key, value] of Object.entries(input)) {
+    if (value === undefined) continue;
     const valueType = value !== null && verifyInputType(value);
 
     if (valueType === 'object') {
@@ -45,6 +46,7 @@ export const camelToSnake = (input: any) => {
   const convertedObject = {};
 
   for (const [key, value] of Object.entries(input)) {
+    if (value === undefined) continue;
     const valueType = value !== null && verifyInputType(value);
 
     if (valueType === 'object') {
