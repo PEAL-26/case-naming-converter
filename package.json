@@ -1,6 +1,6 @@
 {
   "name": "case-naming-converter",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Simple and efficient solution for converting object names or properties from camelCase to snake_case and vice versa",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
