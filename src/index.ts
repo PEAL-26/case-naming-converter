@@ -23,7 +23,7 @@ export const snakeToCamel = <T>(input: any) => {
 
   const convertedObject = {};
   for (const [key, value] of Object.entries(input)) {
-    const valueType = verifyInputType(value);
+    const valueType = value !== null && verifyInputType(value);
 
     if (valueType === 'object') {
       convertedObject[camelCase(key)] = snakeToCamel(value);
@@ -43,7 +43,7 @@ export const camelToSnake = (input: any) => {
   const convertedObject = {};
 
   for (const [key, value] of Object.entries(input)) {
-    const valueType = verifyInputType(value);
+    const valueType = value !== null && verifyInputType(value);
 
     if (valueType === 'object') {
       convertedObject[snakeCase(key)] = camelToSnake(value);
