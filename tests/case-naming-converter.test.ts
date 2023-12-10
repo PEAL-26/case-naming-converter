@@ -78,6 +78,38 @@ describe('camelToSnake', () => {
     expect(result).toEqual(expectedOutput);
   });
 
+  test('converte array de camelCase com Date para snake_case', () => {
+    const date = new Date();
+    const inputArray = [{ ExampleArrayObject: date }];
+    const expectedOutput = [{ example_array_object: date }];
+    const result = camelToSnake(inputArray);
+    expect(result).toEqual(expectedOutput);
+  });
+
+  test('converte array de camelCase para snake_case', () => {
+    const inputArray = [{ ExampleArrayObject: 'valor qualquer' }];
+    const expectedOutput = [{ example_array_object: 'valor qualquer' }];
+    const result = camelToSnake(inputArray);
+    expect(result).toEqual(expectedOutput);
+  });
+
+  test('converte objeto de snake_case para camelCase recursivamente', () => {
+    const date = new Date();
+    const inputObject = {
+      Example_Array_Object: [{ arrayConvert: date }],
+    };
+    const expectedOutput = {
+      exampleArrayObject: [{ arrayConvert: date }],
+    };
+    const result = snakeToCamel(inputObject);
+    expect(result).toEqual(expectedOutput);
+  });
+
+  test('retorna um objeto vazio ao tentar converter um number', () => {
+    const invalidInput = 123; // Não é uma string
+    expect(snakeToCamel(invalidInput)).toEqual({});
+  });
+
   test('lança um erro ao tentar converter um valor inválido', () => {
     const invalidInput = null;
     expect(() => camelToSnake(invalidInput)).toThrow('Valor inválido!');
