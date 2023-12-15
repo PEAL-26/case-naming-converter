@@ -19,10 +19,10 @@ export const snakeToCamel = <T>(input: any) => {
   if (type === 'string') return camelCase(input) as T;
 
   if (type === 'array') {
-    return converterArray<T>(input, 'camel');
+    return converterArray<T>(input, 'camel') as T;
   }
 
-  return converter<T>(input, 'camel');
+  return converter<T>(input, 'camel') as T;
 };
 
 export const camelToSnake = <T>(input: any) => {
@@ -31,10 +31,10 @@ export const camelToSnake = <T>(input: any) => {
   if (type === 'string') return snakeCase(input) as T;
 
   if (type === 'array') {
-    return converterArray<T>(input, 'snake');
+    return converterArray<T>(input, 'snake') as T;
   }
 
-  return converter<T>(input, 'snake');
+  return converter<T>(input, 'snake') as T;
 };
 
 function converterArray<T>(input: any, toConvert: 'camel' | 'snake') {
