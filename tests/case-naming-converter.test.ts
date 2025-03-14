@@ -36,9 +36,12 @@ describe('snakeToCamel', () => {
     expect(result).toEqual(expectedOutput);
   });
 
-  test('lança um erro ao tentar converter um valor inválido', () => {
-    const invalidInput = null;
-    expect(() => snakeToCamel(invalidInput)).toThrow('Valor inválido!');
+  test('Retorna null', () => {
+    expect(snakeToCamel(null)).toBeNull();
+  });
+
+  test('Retorna undefined', () => {
+    expect(snakeToCamel(undefined)).toBeUndefined();
   });
 });
 
@@ -110,8 +113,11 @@ describe('camelToSnake', () => {
     expect(snakeToCamel(invalidInput)).toEqual({});
   });
 
-  test('lança um erro ao tentar converter um valor inválido', () => {
-    const invalidInput = null;
-    expect(() => camelToSnake(invalidInput)).toThrow('Valor inválido!');
+  test('Retorna null', () => {
+    expect(camelToSnake(null)).toBeNull();
+  });
+
+  test('Retorna undefined', () => {
+    expect(camelToSnake(undefined)).toBeUndefined();
   });
 });

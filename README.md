@@ -17,7 +17,7 @@ O módulo `case-naming-converter` fornece duas funções principais: `camelToSna
 ### Exemplo
 
 ```javascript
-import {camelToSnake, snakeToCamel} from 'case-naming-converter';
+import { camelToSnake, snakeToCamel } from 'case-naming-converter';
 
 const camelCaseString = 'exemploDeCamelCase';
 const snakeCaseString = 'exemplo_de_snake_case';
@@ -28,8 +28,8 @@ const convertedToCamelCaseString = snakeToCamel(snakeCaseString);
 console.log('Camel to Snake Case:', convertedToSnakeCaseString);
 console.log('Snake to Camel Case:', convertedToCamelCaseString);
 
-const camelCaseObject = {exemploDeCamelCase: 'valor'};
-const snakeCaseObject = {exemplo_de_snake_case: 'valor'};
+const camelCaseObject = { exemploDeCamelCase: 'valor' };
+const snakeCaseObject = { exemplo_de_snake_case: 'valor' };
 
 const convertedToSnakeCaseObject = camelToSnake(camelCaseObject);
 const convertedToCamelCaseObject = snakeToCamel(snakeCaseObject);

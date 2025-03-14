@@ -14,6 +14,10 @@ export const checkDataType = (input: any) => {
 };
 
 export const snakeToCamel = <T>(input: any) => {
+  if (input === undefined || input === null) {
+    return input;
+  }
+
   const type = checkDataType(input);
 
   if (type === 'string') return camelCase(input) as T;
@@ -26,6 +30,10 @@ export const snakeToCamel = <T>(input: any) => {
 };
 
 export const camelToSnake = <T>(input: any) => {
+  if (input === undefined || input === null) {
+    return input;
+  }
+
   const type = checkDataType(input);
 
   if (type === 'string') return snakeCase(input) as T;

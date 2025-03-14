@@ -8,6 +8,10 @@ console.log(checkDataType({}));
 console.log(camelToSnake('stringExample'));
 console.log(camelToSnake({})); // Empty Object
 console.log(camelToSnake([])); // Empty Array
+console.log(camelToSnake(null)); // Value Null
+console.log(camelToSnake(undefined)); // Value undefined
+console.log(snakeToCamel(null)); // Value Null
+console.log(snakeToCamel(undefined)); // Value undefined
 console.log(camelToSnake([{ ExampleArrayObject: 'valor qualquer' }]));
 console.log(camelToSnake([{ ExampleArrayObject: new Date() }]));
 console.log(camelToSnake({ ExampleArrayObject: [new Date(), new Date()] }));
